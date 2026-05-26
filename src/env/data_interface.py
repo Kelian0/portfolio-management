@@ -1,24 +1,52 @@
-from pydantic import BaseModel
-from datetime import datetime
+from datetime import datetime        
+import pandas as pd
+import plotly.graph_objects as go
+from enum import Enum
 
+class Chart:
+    """
+    Attributs:
+        data: Pandas Dataframe contening OHLCV data with time as index
+        granularity: 
+        ticker: 
+        starting_date: 
+        ending_date: 
+    """
 
-
-class Candle():
     def __init__(
-        self,
-        timestamp: str,
-        open: float,
-        high: float,
-        low: float,
-        close: float,
-        ):
+            self,
+            data: pd.DataFrame,
+            granularity: str = 'M15',
+            ticker: str = 'AAPL',
+            starting_date: datetime = datetime(2026, 4, 1),
+            ending_date: datetime = datetime(2026, 4, 30),
+            ):
 
-        self.timestamp = timestamp
-        self.open = open
-        self.high = high
-        self.low = low
-        self.close = close
-        
+        self.df_data = data
+        self.granularity = granularity
+        self.ticker = ticker
+        self.starting_date = starting_date
+        self.ending_date = ending_date
 
-class Chart(list[Candle]):
-    pass
+    def checker(self):
+        """
+        Check l'état du dataframe 
+        """
+        ...
+
+    def plot(self):
+        """
+        Plot the chart using plotly
+        """
+        ...
+
+    def to_df(self):
+        ...
+
+class BalanceAccount():
+    """
+    """
+    def __init__(self):
+        ...
+    
+    
