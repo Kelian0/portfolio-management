@@ -24,14 +24,6 @@ class TradingEngine:
 
         self.portfolio_state = PortfolioState(initial_balance)
 
-        
-    def _fetch_data(self):
-        """
-        Get the data from the API 
-        """
-        # TODO Change api because yf does not allow data prior of 60 days 
-        yf.download(self.ticker, start=self.starting_date, end=self.ending_date, interval=self.granularity)
-
     def step(self, action):
         pass
 
